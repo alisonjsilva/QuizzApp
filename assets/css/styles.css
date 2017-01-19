@@ -1,8 +1,106 @@
 body {
   background-color: #ccc;
   font-family: sans-serif;
+  font-size: 25px;
 }
 
-#question {
+@media only screen and (max-width: 500px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+#app {
+  margin: 30px 10px 20px 10px;
+}
+
+li{
+  list-style: none;
+}
+
+/*#question {
   font-size: 33px;
+}*/
+.listQuestion {
+  clear: both;
+}
+.listQuestion li{
+  margin-bottom: 20px;
+  vertical-align: middle;;
+  display: table;
+  height: 100%;
+  /* line-height: 60px;*/
+}
+.listQuestion li span{
+  display: table-cell;
+    vertical-align: middle;
+}
+.listQuestion input {
+  clear: both;
+  width: 70px;
+  height: 70px;
+  border-style: none;
+  background: url('../images/BotRed01.png');
+  background-repeat: no-repeat;;
+  background-size: 70px 70px;
+  margin-right: 20px;
+  float: left;
+}
+
+.listQuestion input{
+
+    padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+
+.question-bot {
+  width: 70px;
+  height: 70px;
+  border-style: none;
+  background: url('../images/BotBlack01.png');
+  background-repeat: no-repeat;;
+  background-size: 70px 70px;
+  text-align: center;
+  color: #fff;
+  vertical-align: center;
+  line-height: 70px;
+  float: left;
+  margin-left: 20px;
+}
+
+.question-title {
+  height: 50px;
+  line-height: 50px;
+  vertical-align: center;
+  margin-left: 20px;
+}
+.question-title span {
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+    #app {
+        margin: 10px;
+    }
+    .question-bot {
+      margin-left: 0;
+    }
+    .question-title {
+      margin-left: 0px;
+    }
+    .question-title span {
+      margin-left: 20px;
+    }
+    ul {
+      margin: 0px;
+      padding: 0;
+    }
+    .listQuestion li {
+      margin-bottom: 10px;
+      vertical-align: center;
+
+    }
 }

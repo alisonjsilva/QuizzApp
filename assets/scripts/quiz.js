@@ -98,18 +98,23 @@ var questions;
       id: 'question'
     });
 
-    var header = $('<h2>Question ' + (index + 1) + ':</h2>');
-    qElement.append(header);
+    //var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+    //qElement.append(header);
 
-    var question = $('<p>').append(questions[index].question);
+    //var question = $('<div>').append((index + 1) + ' ' + questions[index].question);
+    var question = $('<div class=\"question-title\"><div class=\"question-bot\">'+ (index + 1) +'</div>'+
+    '<span><strong>'+ questions[index].question+ '</strong></span></div>');
+
     qElement.append(question);
 
-    var radioButtons = createRadios(index);
-    qElement.append(radioButtons);
+    var divRadios = $('<div>').attr('class','listQuestion');
+    divRadios.append(createRadios(index));
+
+    qElement.append(divRadios);
 
     return qElement;
   }
-  
+
   // Creates a list of the answer choices as radio inputs
   function createRadios(index) {
     var radioList = $('<ul>');
@@ -118,7 +123,7 @@ var questions;
     for (var i = 0; i < questions[index].choices.length; i++) {
       item = $('<li>');
       input = '<input type="radio" name="answer" value=' + i + ' />';
-      input += questions[index].choices[i];
+      input += '<span>'+questions[index].choices[i]+'</span>';
       item.append(input);
       radioList.append(item);
     }
