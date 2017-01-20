@@ -81,6 +81,36 @@ li{
   margin-left: 20px;
 }
 
+/* Home video */
+.entrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 90px;
+  width: 200px;
+  background-image: url('../images/Placa01.png');
+  background-repeat: no-repeat;;
+  background-size: 200px 90px;
+  text-align: center;
+  padding-top: 45px;
+}
+.entrar a {
+  position: relative;
+  color: #fff;
+  margin: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* Fim home video */
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 500px) {
     #app {
         margin: 10px;
