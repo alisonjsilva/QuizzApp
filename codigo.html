@@ -28,13 +28,26 @@
     width: 99%;
     float: right;
   }
+
+  .codigo input {
+    background-color:rgba(0, 0, 0, 0);
+    color:white;
+    border: none;
+    outline:none;
+    height:60px;
+    transition:height 1s;
+    -webkit-transition:height 1s;
+    font-size: 22px;
+    text-align: center;
+}
 </style>
 
 <a href="#home" data-page="home.html" data-callback="home" class="navTo">Home</a>
+<a href="#quiz" data-page="quiz.html" data-callback="quiz" class="navTo">Jogo</a>
 <div class="codigo" id="codigo">
   <div class="centrarCodigo">
     <div class="placaCodigo">
-
+    <input type="text" id="insiraCodigo" name="codigo" value="" placeholder="Insira seu código" maxlength="6">
     </div>
     <div class="textoCodigo">
       Insira o seu código de acesso

@@ -1,4 +1,4 @@
-(function() {
+var quizGame = function() {
   //http://codepen.io/gcarino/pen/LDgtn
 var questions;
   $.getJSON("assets/scripts/questions-medico.json", function(json) {
@@ -176,8 +176,13 @@ var questions;
       }
     }
 
+    totalScore = numCorrect;
+    navigation.load('formulario.html', function() {
+
+    })
+
     score.append('You got ' + numCorrect + ' questions out of ' +
                  questions.length + ' right!!!');
     return score;
   }
-})();
+};
