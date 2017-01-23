@@ -167,7 +167,7 @@ var questions;
 
   // Computes score and returns a paragraph element to be displayed
   function displayScore() {
-    var score = $('<p>',{id: 'question'});
+    //var score = $('<p>',{id: 'question'});
 
     var numCorrect = 0;
     for (var i = 0; i < selections.length; i++) {
@@ -181,8 +181,8 @@ var questions;
 
     })
 
-    score.append('You got ' + numCorrect + ' questions out of ' +
-                 questions.length + ' right!!!');
-    return score;
+    //score.append('You got ' + numCorrect + ' questions out of ' +
+                 //questions.length + ' right!!!');
+    //return score;
   }
 };
