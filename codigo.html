@@ -2,22 +2,22 @@
   .centrarCodigo {
     display: table;
     margin: 0 auto;
-    font-size: 19px;
+    font-size: 22px;
     text-align: center;
     font-weight: bold;
+    margin-top: 100px;
   }
   .placaCodigo {
-    width: 300px;
-    height: 80px;
+    width: 400px;
+    height: auto;
     background-image: url('assets/images/Placa01.png');
     background-repeat: no-repeat;;
-    background-size: 300px 120px;
+    background-size: 400px auto;
     text-align: center;
-    padding-top: 45px;
+    padding-top: 70px;
     background-position: center;
   }
   .cat {
-    margin-top: 200px;
     width: 99%;
     display: flex;
   }
@@ -25,8 +25,10 @@
   flex: 1; /*grow*/
 }
   .cat img {
-    width: 99%;
     float: right;
+    width: 290px;
+    position: absolute;
+    bottom: 0;
   }
 
   .codigo input {
@@ -34,35 +36,33 @@
     color:white;
     border: none;
     outline:none;
-    height:60px;
+    height:80px;
+    width: 300px;
     transition:height 1s;
     -webkit-transition:height 1s;
-    font-size: 22px;
+    font-size: 50px;
     text-align: center;
 }
 </style>
 
-<a href="#home" data-page="home.html" data-callback="home" class="navTo">Home</a>
-<a href="#quiz" data-page="quiz.html" data-callback="quiz" class="navTo">Jogo</a>
 <div class="codigo" id="codigo">
   <div class="centrarCodigo">
     <div class="placaCodigo">
-    <input type="text" id="insiraCodigo" name="codigo" value="" placeholder="Insira seu código" maxlength="6">
+    <input type="text" id="insiraCodigo" name="codigo" value="" placeholder="_ _ _ _ _ _" maxlength="6">
     </div>
     <div class="textoCodigo">
       Insira o seu código de acesso
     </div>
   </div>
   <div class="cat">
-    <!--<img src="assets/images/cats/01_chat_clin_oeil_12fps.gif" alt="">-->
     <div class="">
 
     </div>
     <div class="">
-
+      <img src="assets/images/amodip.png" alt="">
     </div>
     <div class="">
-      <img src="assets/images/cats/01_chat_clin_oeil_12fps.gif" alt="">
+      <img src="assets/images/cats/01.gif" alt="">
     </div>
   </div>
 </div>
