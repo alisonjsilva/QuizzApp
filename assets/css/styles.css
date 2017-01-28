@@ -86,13 +86,14 @@ li{
   top: 15px;
   right: 15px;
   height: 140px;
-  width: 310px;
+  width: 250px;
   background-image: url('../images/Placa01.png');
   background-repeat: no-repeat;;
-  background-size: 320px auto;
+  background-size: 250px auto;
   text-align: center;
-  padding-top: 70px;
-  font-size: 40px;
+  padding-top: 55px;
+  font-size: 33px;
+  z-index: 9999;
 }
 .entrar a {
   position: relative;
@@ -109,6 +110,10 @@ a:link {
 
 a:visited {
     text-decoration: none;
+}
+video {
+  position: relative;
+  bottom: 0;
 }
 
 @media only screen and (max-width: 500px) {

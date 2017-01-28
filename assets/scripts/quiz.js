@@ -177,9 +177,7 @@ var questions;
     }
 
     totalScore = numCorrect;
-    navigation.load('formulario.html', function() {
-
-    })
+    navigation.load('formulario.html', formulario);
 
     //score.append('You got ' + numCorrect + ' questions out of ' +
                  //questions.length + ' right!!!');

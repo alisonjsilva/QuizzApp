@@ -94,6 +94,12 @@ var tipoProfissional = function () {
   });
 }
 
+var formulario = function(){
+  $('.btnSend').on('click', function(){
+    navigation.load('parabens.html');
+  });
+}
+
 var totalScore;
 
 function quiz() {

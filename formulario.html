@@ -1,3 +1,115 @@
-<form class="" action="index.html" method="post">
-<input type="text" name="nome"/>
-</form>
+
+<style media="screen">
+.cat {
+  width: 100%;
+  height: 230px;
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+.cat > div {
+flex: 1; /*grow*/
+}
+.cat img {
+  float: right;
+  width: 250px;
+  position: absolute;
+  bottom: 0;
+}
+.cat .catImg {
+  margin-left: 30px;
+}
+.clear {
+  clear: both;
+}
+form {
+  clear: both;
+  margin-left: 15%;
+}
+form label {
+  display:inline-block;
+  width:100px;
+  text-align: right;
+}
+form input {
+  width: 580px;
+  background-color: #e9cec3;
+  border-style: none;
+  height: 32px;
+  margin-bottom: 10px;
+}
+.textoInsira {
+  font-size: 30px;
+  margin-left: 25%;
+  border-style: none;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: black;
+  border-bottom-color: black;
+  margin-bottom: 20px;
+  font-weight: bolder;
+  border-width: 2px;
+  padding: 6px 6px 6px 0px;
+}
+.btnSend {
+  clear: both;
+  width: 70px;
+  height: 70px;
+  border-style: none;
+  background: url('assets/images/BotRed01.png');
+  background-repeat: no-repeat;;
+  background-size: 70px 70px;
+  margin-right: 18%;
+  position: relative;
+  bottom: -15px;
+  float: right;
+  text-align: center;
+  display: table-cell;
+  vertical-align:bottom;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+}
+.btnSend span {
+
+}
+</style>
+<div class="seusDados">
+  <div class="cat">
+    <div class="">
+
+    </div>
+    <div class="">
+      <img src="assets/images/cats/06.gif" class="catImg" alt="">
+    </div>
+    <div class="">
+
+    </div>
+  </div>
+  <div class="textoInsira">
+    INSIRA OS SEUS DADOS E HABILITE-SE
+  </div>
+  <form class="" action="" method="post">
+
+  <label for="nome">Nome </label>
+  <input type="text" name="nome"/><br>
+
+  <label for="camv">CAMV </label>
+  <input type="text" name="camv"/><br>
+
+  <label for="morada">Morada </label>
+  <input type="text" name="morada"/><br>
+
+  <label for="email">E-mail </label>
+  <input type="text" name="email" data-validation="email"/><br>
+
+  <label for="telefone">Telefone </label>
+  <input type="text" name="telefone"/><br>
+
+  <label for="nif">NIF </label>
+  <input type="text" name="nif"/>
+  </form>
+  <div class="btnSend">
+    <span>></span>
+  </div>
+</div>
