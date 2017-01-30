@@ -97,8 +97,36 @@ var tipoProfissional = function () {
 
 var formulario = function(){
   $('.btnSend').on('click', function(){
-    navigation.load('parabens.html', parabens);
+    if(validateForm()){
+      navigation.load('parabens.html', parabens);
+    }
+    
   });
+  
+  function validateForm(){
+    var nome= $('input[name="nome"]').val();
+    var camv= $('input[name="camv"]').val();
+    var morada= $('input[name="morada"]').val();
+    var email= $('input[name="email"]').val();
+    var telefone= $('input[name="telefone"]').val();
+    var nif= $('input[name="nif"]').val();
+    
+    if(nome === '' || camv === '' || morada === '' || email === '' || telefone === '' || nif === ''){
+      $('#generalError').show();
+      return false;
+    }
+  }
+  
+  function ValidateEmail(email) {
+        var x = String(email);
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 var parabens = function(){
