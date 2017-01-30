@@ -1,67 +1,58 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <!-- manifest="quizzApp.appcache" -->
-	<head>
-		<meta charset="UTF-8">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Quizz App</title>
+    <!--<link rel="manifest" href="manifest.json">-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-icon-180x180.png">
+    <link rel="shortcut icon" type="image/png" sizes="192x192" href="/assets/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+    <script type='text/javascript' src='assets/scripts/jquery.min.js'></script>
+    <script src="assets/scripts/jquery.form-validator.min.js" charset="utf-8"></script>
+    <script src="assets/scripts/stopwatch.js"></script>
+</head>
+<body>
+    <!--<div id="quiz">
+        <div id="question"></div>
+    </div>-->
+    <div id="app">
+        <!--<div id="quiz">
+            <div class="question">
+                <div class="question-title">
+                    <div class="question-bot">1</div>
+                    <span><strong>O QUE É A HIPERTENSÃO ARTERIAL?</strong></span>
+                </div>
+            </div>
+            <div class="listQuestion">
+                <ul>
+                    <li><input type="text" name="" value=""><span>Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg<span></li>
+                    <li><input type="text" name="" value="">Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg</li>
+                    <li><input type="text" name="" value="">Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg</li>
+                </ul>
+            </div>
+        </div>-->
+    </div>
+    <script src="assets/scripts/questions.js" charset="utf-8"></script>
+    <script src="assets/scripts/quiz.js" charset="utf-8"></script>
+    <script src="assets/scripts/app.js" charset="utf-8"></script>
 
-			<title>Quizz App</title>
-			<!--<link rel="manifest" href="manifest.json">-->
-
-			<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-icon-57x57.png">
-			<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-icon-60x60.png">
-			<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-icon-72x72.png">
-			<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-icon-76x76.png">
-			<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-icon-114x114.png">
-			<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-icon-120x120.png">
-			<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-icon-144x144.png">
-			<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-icon-152x152.png">
-			<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-icon-180x180.png">
-			<link rel="shortcut icon" type="image/png" sizes="192x192"  href="/assets/images/icons/android-icon-192x192.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="96x96" href="assets/images/icons/favicon-96x96.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-
-			<meta name="msapplication-TileColor" content="#ffffff">
-			<meta name="msapplication-TileImage" content="/assets/images/icons/ms-icon-144x144.png">
-			<meta name="theme-color" content="#ffffff">
-
-			<link href="assets/css/styles.css" rel="stylesheet" type="text/css">
-
-			<script type='text/javascript' src='assets/scripts/jquery.min.js'></script>
-			<script src="assets/scripts/jquery.form-validator.min.js" charset="utf-8"></script>
-			<script src="assets/scripts/stopwatch.js"></script>
-
-		</head>
-		<body>
-
-			<!--<div id="quiz">
-				<div id="question"></div>
-			</div>-->
-
-			<div id="app">
-				<!--<div id="quiz">
-					<div class="question">
-						<div class="question-title">
-							<div class="question-bot">1</div>
-							<span><strong>O QUE É A HIPERTENSÃO ARTERIAL?</strong></span>
-						</div>
-					</div>
-					<div class="listQuestion">
-						<ul>
-							<li><input type="text" name="" value=""><span>Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg<span></li>
-							<li><input type="text" name="" value="">Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg</li>
-							<li><input type="text" name="" value="">Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg</li>
-						</ul>
-					</div>
-				</div>-->
-			</div>
-
-<script src="assets/scripts/quiz.js" charset="utf-8"></script>
-			<script src="assets/scripts/app.js" charset="utf-8"></script>
-
-
-		</body>
-	</html>
+</body>
+</html>
