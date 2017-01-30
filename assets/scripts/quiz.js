@@ -177,6 +177,8 @@ var questions;
     }
 
     totalScore = numCorrect;
+    $('.timer').stopwatch().stopwatch('stop');
+    totalTime = $('.timer').text();
     navigation.load('formulario.html', formulario);
 
     //score.append('You got ' + numCorrect + ' questions out of ' +

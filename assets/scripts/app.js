@@ -20,6 +20,7 @@ var navigation = (function() {
 
   // call load function
   var load = function (page, callback){
+    
     $('#app').load(page, function(){
 
       actualPage = page;
@@ -96,16 +97,26 @@ var tipoProfissional = function () {
 
 var formulario = function(){
   $('.btnSend').on('click', function(){
-    navigation.load('parabens.html');
+    navigation.load('parabens.html', parabens);
+  });
+}
+
+var parabens = function(){
+  $('#totalScore').text(totalScore);
+  $('.crono').html('Crono ' + totalTime);
+  
+  $('.btnSend').on('click', function(){
+    navigation.load('convite.html');
   });
 }
 
 var totalScore;
+var totalTime;
 
 function quiz() {
   console.log('jogo');
   // init game
   quizGame();
-  //$('.timer').stopwatch({format: '{M}m{s.}s'}).stopwatch('start');
+  $('.timer').stopwatch({format: '{M}m{s.}s'}).stopwatch('start');
   //setTimeout(add, 1000);
 }

@@ -11,7 +11,7 @@ flex: 1; /*grow*/
 }
 .cat img {
   float: right;
-  width: 450px;
+  width: 150px;
   position: absolute;
   bottom: 0;
 }
@@ -41,32 +41,7 @@ flex: 1; /*grow*/
   position: relative;
   top: -114px;
 }
-.btnSend {
-  clear: both;
-  width: 70px;
-  height: 70px;
-  border-style: none;
-  background: url('assets/images/BotRed01.png');
-  background-repeat: no-repeat;;
-  background-size: 70px 70px;
-  margin-right: 18%;
-  position: relative;
-  bottom: 95px;
-  float: right;
-  text-align: center;
-  display: table-cell;
-  vertical-align:bottom;
-  font-size: 50px;
-  font-weight: bold;
-  color: #fff;
-}
-.btnSend span {
 
-}
-.respondeu {
-  font-size: 40px;
-  margin-left: 200px;
-}
 .crono {
   background-image:url(assets/images/crono.png);
   background-repeat:no-repeat;
@@ -80,33 +55,25 @@ flex: 1; /*grow*/
   padding-bottom: 41px;
 }
 
+.textoConvite {
+    position: relative;
+    
+}
+.textoConvite span {
+    position:absolute;
+    bottom:6px;
+    text-align:right;
+}
 </style>
 <div class="parabens">
   <div class="cat">
-    <div class="">
-      <img src="assets/images/cats/12.gif" class="catImg" alt="">
+    <div class="textoConvite">
+      <span>Temos o prazer de o convidar<br>
+      para a entrega dos prémios,<br>domingo pelas 17h</span>
     </div>
     <div class="">
-
+        <img src="assets/images/cats/01.gif" class="catImg" alt="">
     </div>
-    <div class="">
-
-    </div>
-  </div>
-  <div class="caixaParabens">
-    <div class="textoParabens">
-      PARABÉNS!
-    </div>
-  </div>
-  <div class="respondeu">
-    Respondeu correctamente a <span id="totalScore"></span> perguntas <br><br>em
-    <div class="crono">
-
-    </div>
-  </div>
-
-  <div class="btnSend">
-    <span>></span>
   </div>
 
 </div>
