@@ -106,4 +106,6 @@ function quiz() {
   console.log('jogo');
   // init game
   quizGame();
+  //$('.timer').stopwatch({format: '{M}m{s.}s'}).stopwatch('start');
+  //setTimeout(add, 1000);
 }
