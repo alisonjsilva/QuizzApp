@@ -16,6 +16,7 @@ flex: 1; /*grow*/
   width: 250px;
   position: absolute;
   bottom: 0;
+  left: 45px;
 }
 .cat .catImg {
   margin-left: 30px;
@@ -23,16 +24,34 @@ flex: 1; /*grow*/
 .clear {
   clear: both;
 }
+#question {
+  margin-left: 45px;
+}
+.crono {
+  background-image:url(assets/images/crono.png);
+  background-repeat:no-repeat;
+  text-align:center;
+  width:140px;
+  right:-90px;
+  position: relative;
+  bottom: -25px;
+  font-size:30px;
+  padding-top: 45px;
+  padding-bottom: 41px;
+}
 </style>
 <div class="cat">
   <div class="">
     <img src="assets/images/cats/03.gif" class="catImg" alt="">
   </div>
   <div class="">
-    
+
   </div>
   <div class="">
-    <div class="timer" id="timer">00m00s</div>
+    <div class="crono">
+      Crono<br>
+      <div class="timer" id="timer">00m00s</div>
+    </div>
   </div>
 </div>
 <div class="clear"></div>

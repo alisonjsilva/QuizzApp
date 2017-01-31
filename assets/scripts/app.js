@@ -1,5 +1,17 @@
 var actualPage;
 var user = {};
+var totalScore;
+var totalTime;
+
+if (!localStorage.contacts) {
+  localStorage.contacts = JSON.stringify([]);
+}
+
+var init = function () {
+  user = {};
+  totalTime = 0;
+  totalScore = 0;
+}
 
 // navigation function
 var navigation = (function () {
@@ -49,14 +61,45 @@ var navigation = (function () {
 
 })();
 
-navigation.load('home.html', function () {
-
-});
+navigation.load('home.html', home);
 
 // homepage
 function home() {
     console.log('this is home');
-}
+    $(document).on('click', '.btn-admin', function () {
+        navigation.load('admin-login.html', function () {
+          console.log('admin-login');
+          adminLogin();
+        });
+    });
+};
+
+var adminLogin = function () {
+  $(document).on('click', '.admin-btn-password', function () {
+    var pass = $('.admin-password').val();
+    if(pass === 'ceva123'){
+      navigation.load('admin-options.html', function () {
+
+        $(document).on('click', '.ranking', function () {
+          var ref = firebase.database().ref('contacts/').orderByChild('respostas');
+          var ranking = '';
+          ref.on("value", function(snapshot) {
+             //console.log(snapshot.val());
+             snapshot.forEach(function(data) {
+               console.log("The " + data.key + " rating is " + data.val().nif);
+               ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
+             });
+             console.log(ranking);
+             $('.caixa').html(ranking);
+           }, function (error) {
+              console.log("Error: " + error.code);
+           });
+        });
+
+      });
+    }
+  });
+};
 
 // pagina codigo
 var codigo = function () {
@@ -89,13 +132,14 @@ var validateCode = function (_codigo) {
 }
 
 var tipoProfissional = function () {
+    hideKeyboard();
     console.log('tipoProfissional');
     $('#tipoProfissional input').on('click', function () {
 
         var tipo = $(this).val();
 
         if (tipo == '0') {
-            // médico          
+            // médico
             navigation.load('quiz.html', function () {
                 quiz(questionsMedicos);
             });
@@ -125,12 +169,34 @@ var formulario = function () {
         var telefone = $('input[name="telefone"]').val();
         var nif = $('input[name="nif"]').val();
 
+        var $errorDiv = $('#generalError');
+
         if (nome === '' || camv === '' || morada === '' || email === '' || telefone === '' || nif === '') {
-            $('#generalError').show();
+            $errorDiv.show();
 
             return false;
 
         } else {
+          $errorDiv.hide();
+          if(!ValidateEmail(email)){
+
+            $errorDiv.text('* Email inválido.');
+            $errorDiv.show();
+            return false;
+          }
+
+          if(nif.length < 9){
+            $errorDiv.text('* NIF Inválido.');
+            $errorDiv.show();
+            return false;
+          }
+
+          if(telefone.match(/\d/g).length===9){
+            $errorDiv.text('* Número de telefone inválido.');
+            $errorDiv.show();
+            return false;
+          }
+
             user.nome = nome;
             user.camv = camv;
             user.morada = morada;
@@ -140,9 +206,18 @@ var formulario = function () {
             user.respostas = totalScore;
             user.time = totalTime;
 
-            var dataUSer = JSON.stringify(user);
-        }
+            var dataUSer = user;
+            var contacts = JSON.parse(localStorage["contacts"]);
+            contacts.push(dataUSer);
+            contacts.sort(function(a, b) {
+              return parseFloat(a.respostas) - parseFloat(b.respostas);
+            });
+            localStorage["contacts"] = JSON.stringify(contacts);
 
+            // add data to firebase
+            firebase.database().ref('contacts/' + user.nif).set(user);
+        }
+        hideKeyboard();
         return true;
     }
 
@@ -167,9 +242,6 @@ var parabens = function () {
     });
 }
 
-var totalScore;
-var totalTime;
-
 function quiz(tipo) {
     console.log('jogo', arguments);
     // init game
@@ -177,3 +249,7 @@ function quiz(tipo) {
     $('.timer').stopwatch({ format: '{M}m{s.}s' }).stopwatch('start');
     //setTimeout(add, 1000);
 }
+
+var hideKeyboard = function() {
+    document.activeElement.blur();
+};
