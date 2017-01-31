@@ -4,13 +4,13 @@ var totalScore;
 var totalTime;
 
 if (!localStorage.contacts) {
-  localStorage.contacts = JSON.stringify([]);
+    localStorage.contacts = JSON.stringify([]);
 }
 
 var init = function () {
-  user = {};
-  totalTime = 0;
-  totalScore = 0;
+    user = {};
+    totalTime = 0;
+    totalScore = 0;
 }
 
 // navigation function
@@ -68,37 +68,37 @@ function home() {
     console.log('this is home');
     $(document).on('click', '.btn-admin', function () {
         navigation.load('admin-login.html', function () {
-          console.log('admin-login');
-          adminLogin();
+            console.log('admin-login');
+            adminLogin();
         });
     });
 };
 
 var adminLogin = function () {
-  $(document).on('click', '.admin-btn-password', function () {
-    var pass = $('.admin-password').val();
-    if(pass === 'ceva123'){
-      navigation.load('admin-options.html', function () {
+    $(document).on('click', '.admin-btn-password', function () {
+        var pass = $('.admin-password').val();
+        if (pass === 'ceva123') {
+            navigation.load('admin-options.html', function () {
 
-        $(document).on('click', '.ranking', function () {
-          var ref = firebase.database().ref('contacts/').orderByChild('respostas');
-          var ranking = '';
-          ref.on("value", function(snapshot) {
-             //console.log(snapshot.val());
-             snapshot.forEach(function(data) {
-               console.log("The " + data.key + " rating is " + data.val().nif);
-               ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
-             });
-             console.log(ranking);
-             $('.caixa').html(ranking);
-           }, function (error) {
-              console.log("Error: " + error.code);
-           });
-        });
+                $(document).on('click', '.ranking', function () {
+                    var ref = firebase.database().ref('contacts/').orderByChild('respostas');
+                    var ranking = '';
+                    ref.on("value", function (snapshot) {
+                        //console.log(snapshot.val());
+                        snapshot.forEach(function (data) {
+                            console.log("The " + data.key + " rating is " + data.val().nif);
+                            ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
+                        });
+                        console.log(ranking);
+                        $('.caixa').html(ranking);
+                    }, function (error) {
+                        console.log("Error: " + error.code);
+                    });
+                });
 
-      });
-    }
-  });
+            });
+        }
+    });
 };
 
 // pagina codigo
@@ -177,25 +177,26 @@ var formulario = function () {
             return false;
 
         } else {
-          $errorDiv.hide();
-          if(!ValidateEmail(email)){
+            $errorDiv.hide();
+            if (!ValidateEmail(email)) {
 
-            $errorDiv.text('* Email inválido.');
-            $errorDiv.show();
-            return false;
-          }
+                $errorDiv.text('* Email inválido.');
+                $errorDiv.show();
+                return false;
+            }
 
-          if(nif.length < 9){
-            $errorDiv.text('* NIF Inválido.');
-            $errorDiv.show();
-            return false;
-          }
+            if (nif.length < 9) {
+                $errorDiv.text('* NIF Inválido.');
+                $errorDiv.show();
+                return false;
+            }
 
-          if(telefone.match(/\d/g).length===9){
-            $errorDiv.text('* Número de telefone inválido.');
-            $errorDiv.show();
-            return false;
-          }
+            //if(telefone.match(/\d/g).length===9){
+            if (telefone.length < 9) {
+                $errorDiv.text('* Número de telefone inválido.');
+                $errorDiv.show();
+                return false;
+            }
 
             user.nome = nome;
             user.camv = camv;
@@ -209,13 +210,22 @@ var formulario = function () {
             var dataUSer = user;
             var contacts = JSON.parse(localStorage["contacts"]);
             contacts.push(dataUSer);
-            contacts.sort(function(a, b) {
-              return parseFloat(a.respostas) - parseFloat(b.respostas);
+            contacts.sort(function (a, b) {
+                return parseFloat(a.respostas) - parseFloat(b.respostas);
             });
             localStorage["contacts"] = JSON.stringify(contacts);
 
-            // add data to firebase
-            firebase.database().ref('contacts/' + user.nif).set(user);
+            var connectedRef = firebase.database().ref(".info/connected");
+            connectedRef.on("value", function (snap) {
+                if (snap.val() === true) {
+                    //alert("connected");
+                    // add data to firebase
+                    firebase.database().ref('contacts/' + user.nif).set(user);
+                } else {
+                    alert("Not connected. Não será sincronizado com o servidor.");
+                }
+            });
+            
         }
         hideKeyboard();
         return true;
@@ -250,6 +260,6 @@ function quiz(tipo) {
     //setTimeout(add, 1000);
 }
 
-var hideKeyboard = function() {
+var hideKeyboard = function () {
     document.activeElement.blur();
 };
