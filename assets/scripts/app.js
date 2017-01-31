@@ -222,7 +222,7 @@ var formulario = function () {
                     // add data to firebase
                     firebase.database().ref('contacts/' + user.nif).set(user);
                 } else {
-                    alert("Not connected. Não será sincronizado com o servidor.");
+                    console.log("Not connected. Não será sincronizado com o servidor.");
                 }
             });
             
