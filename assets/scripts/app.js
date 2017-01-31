@@ -119,7 +119,7 @@ var codigo = function () {
 // validate code inserted
 var validateCode = function (_codigo) {
 
-    var codigos = ['123456', '654321'];
+    var codigos = codes;
 
     if (codigos.indexOf(_codigo) > -1) {
         console.log('código correcto');
