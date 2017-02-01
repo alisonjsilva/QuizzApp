@@ -278,6 +278,7 @@ function quiz(tipo) {
     //setTimeout(add, 1000);
 }
 
+// Hide keyboard in Ipad
 var hideKeyboard = function () {
     document.activeElement.blur();
 };
