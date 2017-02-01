@@ -75,7 +75,13 @@ function home() {
 };
 
 var adminLogin = function () {
+
+  $(document).on('click', '.admin-btn-fechar', function () {
+    reinitApp();
+  });
+
     $(document).on('click', '.admin-btn-password', function () {
+
         var pass = $('.admin-password').val();
         if (pass === 'ceva123') {
             navigation.load('admin-options.html', function () {
@@ -90,7 +96,7 @@ var adminLogin = function () {
                             ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
                         });
                         console.log(ranking);
-                        $('.caixa').html(ranking);
+                        $('.caixa').html('<div class="rankingScroll">'+ranking+'</div>');
                     }, function (error) {
                         console.log("Error: " + error.code);
                     });
@@ -229,7 +235,7 @@ var formulario = function () {
                     console.log("Not connected. Não será sincronizado com o servidor.");
                 }
             });
-            
+
         }
         hideKeyboard();
         return true;
@@ -252,8 +258,16 @@ var parabens = function () {
     $('.crono').html('Crono ' + totalTime);
 
     $('.btnSend').on('click', function () {
-        navigation.load('convite.html');
+        navigation.load('convite.html', convite);
     });
+}
+
+var convite = function () {
+  console.log('convite');
+  $(document).on('click', '.btnVoltar, .admin-btn-fechar  ', function () {
+    console.log('voltar');
+    reinitApp();
+  });
 }
 
 function quiz(tipo) {
@@ -267,3 +281,8 @@ function quiz(tipo) {
 var hideKeyboard = function () {
     document.activeElement.blur();
 };
+
+var reinitApp = function () {
+  console.log('reinitApp');
+  document.location = 'index.html';
+}
