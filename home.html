@@ -1,15 +1,36 @@
-<div class="home" id="home">
-  <div class="btn-admin">
-    Será invisivel
-  </div>
-  <div class="entrar">
-    <a href="#entrar" onclick="" data-page="codigo.html" data-callback="codigo" class="navTo">Entrar</a>
-  </div>
+<style>
+    
 
-  <div class="">
-    <video width="100%" autoplay="true">
-      <source src="assets/images/cats/video.m4v" type="video/x-m4v">
-    </video>
-  </div>
+    .home {
+        display: table;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .videoContainer {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    video {
+        margin-left: auto;
+        margin-right: auto;
+        width: /*whatever width you want*/;
+    }
+</style>
+<div class="home" id="home">
+    <div class="btn-admin">
+        Será invisivel
+    </div>
+    <div class="entrar">
+        <a href="#entrar" onclick="" data-page="codigo.html" data-callback="codigo" class="navTo">Entrar</a>
+    </div>
+
+    <div class="videoContainer">
+        <video width="100%" autoplay="true" id="backgroundvid">
+            <source src="assets/images/cats/video.m4v" type="video/x-m4v">
+        </video>
+    </div>
 
 </div>

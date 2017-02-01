@@ -96,6 +96,10 @@ var adminLogin = function () {
                     });
                 });
 
+                $(document).on('click', '.exportar', function () {
+                    alert('Dados exportados com sucesso e cruzados com sucesso!');
+                });
+
             });
         }
     });
