@@ -61,7 +61,10 @@ var navigation = (function () {
 
 })();
 
-navigation.load('home.html', home);
+//navigation.load('home.html', home);
+navigation.load('codigo.html', function () {
+    codigo();
+});
 
 // homepage
 function home() {
@@ -113,6 +116,13 @@ var adminLogin = function () {
 
 // pagina codigo
 var codigo = function () {
+
+    $(document).on('click', '.btn-admin', function () {
+        navigation.load('admin-login.html', function () {
+            console.log('admin-login');
+            adminLogin();
+        });
+    });
 
     // detecting inserting code
     $(document).on('change paste keyup', '#insiraCodigo', function () {
@@ -166,7 +176,8 @@ var tipoProfissional = function () {
 var formulario = function () {
     $('.btnSend').on('click', function () {
         if (validateForm()) {
-            navigation.load('parabens.html', parabens);
+            //navigation.load('parabens.html', parabens);
+            navigation.load('convite.html', convite);
         }
 
     });
@@ -258,7 +269,8 @@ var parabens = function () {
     $('.crono').html('Crono ' + totalTime);
 
     $('.btnSend').on('click', function () {
-        navigation.load('convite.html', convite);
+        //navigation.load('convite.html', convite);
+        navigation.load('formulario.html', formulario);
     });
 }
 

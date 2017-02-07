@@ -1,71 +1,87 @@
 <style media="screen">
-  .centrarCodigo {
-    display: table;
-    margin: 0 auto;
-    font-size: 22px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 100px;
-  }
-  .placaCodigo {
-    width: 400px;
-    height: auto;
-    background-image: url('assets/images/Placa01.png');
-    background-repeat: no-repeat;;
-    background-size: 400px auto;
-    text-align: center;
-    padding-top: 70px;
-    background-position: center;
-  }
-  .cat {
-    width: 99%;
-    display: flex;
-  }
-  .cat > div {
-  flex: 1; /*grow*/
-}
-  .cat img {
-    float: right;
-    width: 290px;
-    position: absolute;
-    bottom: 0;
-  }
+    .centrarCodigo {
+        display: table;
+        margin: 0 auto;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 100px;
+    }
 
-  .codigo input {
-    background-color:rgba(0, 0, 0, 0);
-    color:white;
-    border: none;
-    outline:none;
-    height:80px;
-    width: 300px;
-    transition:height 1s;
-    -webkit-transition:height 1s;
-    font-size: 50px;
-    text-align: center;
-}
-.logo img{
-    margin-left: 23px;
-}
+    .placaCodigo {
+        width: 400px;
+        height: auto;
+        background-image: url('assets/images/Placa01.png');
+        background-repeat: no-repeat;
+        ;
+        background-size: 400px auto;
+        text-align: center;
+        padding-top: 70px;
+        background-position: center;
+    }
+
+    .cat {
+        width: 99%;
+        display: flex;
+    }
+
+        .cat > div {
+            flex: 1; /*grow*/
+        }
+
+        .cat img {
+            float: right;
+            width: 290px;
+            position: absolute;
+            bottom: 0;
+        }
+
+    .codigo input {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: none;
+        outline: none;
+        height: 80px;
+        width: 300px;
+        transition: height 1s;
+        -webkit-transition: height 1s;
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .logo img {
+        margin-left: 23px;
+    }
+    .btn-admin a {
+        color:black;
+    }
 </style>
 
 <div class="codigo" id="codigo">
-  <div class="centrarCodigo">
-    <div class="placaCodigo">
-    <input type="text" id="insiraCodigo" name="codigo" value="" placeholder="_ _ _ _ _ _" maxlength="6">
+    <div class="btn-admin">
+        <a href="#">
+            Administração<br>
+            Será invisivel
+        </a>
     </div>
-    <div class="textoCodigo">
-      Insira o seu código de acesso
-    </div>
-  </div>
-  <div class="cat">
-    <div class="">
 
+    <div class="centrarCodigo">
+        <div class="placaCodigo">
+            <input type="text" id="insiraCodigo" name="codigo" value="" placeholder="_ _ _ _ _ _" maxlength="6">
+        </div>
+        <div class="textoCodigo">
+            Insira o seu código de acesso
+        </div>
     </div>
-    <div class="logo">
-      <img src="assets/images/amodip.png" alt="">
+    <div class="cat">
+        <div class="">
+
+        </div>
+        <div class="logo">
+            <img src="assets/images/amodip.png" alt="">
+        </div>
+        <div class="">
+            <img src="assets/images/cats/01.gif" alt="">
+        </div>
     </div>
-    <div class="">
-      <img src="assets/images/cats/01.gif" alt="">
-    </div>
-  </div>
 </div>

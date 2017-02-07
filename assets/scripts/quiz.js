@@ -152,7 +152,8 @@ var quizGame = function (questions) {
         totalScore = numCorrect;
         $('.timer').stopwatch().stopwatch('stop');
         totalTime = $('.timer').text();
-        navigation.load('formulario.html', formulario);
+        //navigation.load('formulario.html', formulario);
+        navigation.load('parabens.html', parabens);
 
         //score.append('You got ' + numCorrect + ' questions out of ' +
         //questions.length + ' right!!!');
