@@ -79,9 +79,9 @@ function home() {
 
 var adminLogin = function () {
 
-  $(document).on('click', '.admin-btn-fechar', function () {
-    reinitApp();
-  });
+    $(document).on('click', '.admin-btn-fechar', function () {
+        reinitApp();
+    });
 
     $(document).on('click', '.admin-btn-password', function () {
 
@@ -99,7 +99,7 @@ var adminLogin = function () {
                             ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
                         });
                         console.log(ranking);
-                        $('.caixa').html('<div class="rankingScroll">'+ranking+'</div>');
+                        $('.caixa').html('<div class="rankingScroll">' + ranking + '</div>');
                     }, function (error) {
                         console.log("Error: " + error.code);
                     });
@@ -177,7 +177,9 @@ var formulario = function () {
     $('.btnSend').on('click', function () {
         if (validateForm()) {
             //navigation.load('parabens.html', parabens);
-            navigation.load('convite.html', convite);
+            navigation.load('convite.html', function () {
+                convite();
+            });
         }
 
     });
@@ -275,11 +277,11 @@ var parabens = function () {
 }
 
 var convite = function () {
-  console.log('convite');
-  $(document).on('click', '.btnVoltar, .admin-btn-fechar  ', function () {
-    console.log('voltar');
-    reinitApp();
-  });
+    console.log('convite');
+    $(document).on('click', '.btnVoltar, .admin-btn-fechar  ', function () {
+        console.log('voltar');
+        reinitApp();
+    });
 }
 
 function quiz(tipo) {
@@ -296,6 +298,6 @@ var hideKeyboard = function () {
 };
 
 var reinitApp = function () {
-  console.log('reinitApp');
-  document.location = 'index.html';
+    console.log('reinitApp');
+    document.location = 'index.html';
 }
