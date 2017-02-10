@@ -1,0 +1,94 @@
+<style media="screen">
+.cat {
+  width: 100%;
+  height: 360px;
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+.cat > div {
+flex: 1; /*grow*/
+}
+.cat img {
+  float: right;
+  width: 450px;
+  position: absolute;
+  bottom: 0;
+}
+.cat .catImg {
+  margin-left: 50px;
+  z-index: 9999;
+}
+.clear {
+  clear: both;
+}
+.textoParabens {
+  margin-left: 520px;
+  border-style: none;
+  border-top-style: solid;
+  border-top-color: black;
+  border-width: 2px;
+  font-weight: bold;
+  padding: 6px;
+  font-size: 40px;
+}
+.caixaParabens {
+  border-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-width: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  top: -114px;
+}
+.btnSend {
+  clear: both;
+  width: 70px;
+  height: 70px;
+  border-style: none;
+  background: url('assets/images/BotRed01.png');
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+  margin-right: 18%;
+  position: relative;
+  bottom: 95px;
+  float: right;
+  text-align: center;
+  display: table-cell;
+  vertical-align:bottom;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+}
+.btnSend span {
+
+}
+.respondeu {
+  font-size: 40px;
+  margin: auto;
+  text-align:center;
+  padding:30px;
+  margin-top: 15%;
+  position: relative;
+}
+
+</style>
+<div class="parabens">
+  <div class="caixaParabens">
+    <div class="textoParabens">
+      PARABÉNS!
+    </div>
+  </div>
+  <div class="respondeu">
+    Escolha por favor a resposta certa entre as opções apresentadas.<br />
+      Os dois vencedores serão os que tiverem mais respostas certas, e menor tempo de resposta.
+      <br />
+      Boa Sorte!
+    
+  </div>
+
+  <div class="btnSend">
+    <span>></span>
+  </div>
+
+</div>

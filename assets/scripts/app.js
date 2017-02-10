@@ -134,9 +134,39 @@ var adminLogin = function () {
 
                 $(document).on('click', '.exportar', function () {
 
-                    if (localStorage.contacts) {
-                        JSONToCSVConvertor(localStorage.contacts, "contactos", true);
-                    }
+
+                    var connectedRef = firebase.database().ref(".info/connected");
+                    connectedRef.on("value", function (snap) {
+                        if (navigator.onLine && snap.val() === true) {
+                            var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
+                            var ranking = '';
+                            ref.on("value", function (snapshot) {
+                                var data = JSON.stringify(snapshot.val());
+                                console.log(data);
+                                $.ajax({
+                                    url: "http://fixhouse.pt/api/sendEmail.php",
+                                    type: "POST",
+                                    data: {
+                                        data : data
+                                    },
+                                    context: document.body
+                                }).done(function (r) {
+                                    console.log(r);
+                                });
+                            });
+
+                            if (localStorage.contacts) {
+                                //JSONToCSVConvertor(localStorage.contacts, "contactos", true);
+                            }
+
+                        } else if (!navigator.onLine) {
+                            console.log("Not connected. Não será sincronizado com o servidor.");
+
+                            if (localStorage.contacts) {
+                                JSONToCSVConvertor(localStorage.contacts, "contactos", true);
+                            }
+                        }
+                    });                    
 
                     alert('Dados exportados com sucesso e cruzados com sucesso!');
                 });
@@ -173,7 +203,7 @@ var validateCode = function (_codigo) {
 
     var codigos = codes;
 
-    if (codigos.indexOf(_codigo) > -1) {
+    if (codigos.indexOf(_codigo) > -1 || _codigo.toLowerCase() == 'apceva') {
         console.log('código correcto');
 
         // validate in firebase
@@ -187,7 +217,7 @@ var validateCode = function (_codigo) {
                     returnedCode = snapshot.val();
 
                     // if return a value its is used
-                    if (snapshot.val() !== null) {
+                    if (_codigo.toLowerCase() != 'apceva' && snapshot.val() !== null) {
                         alert('Este código já foi utilizado');
                         reinitApp();
                         return false;
@@ -329,6 +359,7 @@ var formulario = function () {
                     
                     // add data to firebase
                     firebase.database().ref('contacts/' + user.code).set(user);
+                    
                 } else if (!navigator.onLine) {
                     console.log("Not connected. Não será sincronizado com o servidor.");
                 }
