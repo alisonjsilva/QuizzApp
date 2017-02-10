@@ -133,6 +133,11 @@ var adminLogin = function () {
                 });
 
                 $(document).on('click', '.exportar', function () {
+
+                    if (localStorage.contacts) {
+                        JSONToCSVConvertor(localStorage.contacts, "contactos", true);
+                    }
+
                     alert('Dados exportados com sucesso e cruzados com sucesso!');
                 });
 
@@ -380,4 +385,38 @@ var hideKeyboard = function () {
 var reinitApp = function () {
     console.log('reinitApp');
     document.location = 'index.html';
+}
+
+function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    var CSV = '';
+
+    CSV += ReportTitle + '\r\n\n';
+
+    if (ShowLabel) {
+        var row = "";
+        for (var index in arrData[0]) {
+            row += index + ',';
+        }
+        row = row.slice(0, -1);
+        CSV += row + '\r\n';
+    }
+
+    for (var i = 0; i < arrData.length; i++) {
+        var row = "";
+        for (var index in arrData[i]) {
+            row += '"' + arrData[i][index] + '",';
+        }
+        row.slice(0, row.length - 1);
+        CSV += row + '\r\n';
+    }
+
+    if (CSV == '') {
+        alert("Invalid data");
+        return;
+    }
+
+    var fileName = ReportTitle;
+    var uri = 'data:text/csv;charset=ISO-8859-1,' + escape(CSV);
+    window.location.href = uri;
 }
