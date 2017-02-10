@@ -2,16 +2,41 @@ var actualPage;
 var user = {};
 var totalScore;
 var totalTime;
+var code;
+var tipoProfissional;
 
 if (!localStorage.contacts) {
     localStorage.contacts = JSON.stringify([]);
+}
+if (!localStorage.usedCodes) {
+    localStorage.usedCodes = JSON.stringify([]);
 }
 
 var init = function () {
     user = {};
     totalTime = 0;
     totalScore = 0;
+
 }
+
+var syncronize = (function () {
+    var connectedRef = firebase.database().ref(".info/connected");
+    connectedRef.on("value", function (snap) {
+        if (navigator.onLine && snap.val() === true) {
+            var data = JSON.parse(localStorage["contacts"]);
+            data.forEach(function (obj) {
+
+                var newPostRef = firebase.database().ref('dados/' + obj.code).set(obj);                
+                
+            });
+            // add data to firebase
+            //firebase.database().ref('dados/').set(JSON.parse(localStorage["contacts"]));            
+
+        } else if (!navigator.onLine) {
+            console.log("Not connected. Não será sincronizado com o servidor.");
+        }
+    });
+})();
 
 // navigation function
 var navigation = (function () {
@@ -90,10 +115,12 @@ var adminLogin = function () {
             navigation.load('admin-options.html', function () {
 
                 $(document).on('click', '.ranking', function () {
-                    var ref = firebase.database().ref('contacts/').orderByChild('respostas');
+                    var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
                     var ranking = '';
                     ref.on("value", function (snapshot) {
                         //console.log(snapshot.val());
+                        console.log(snapshot.val());
+                        var results = snapshot.val();
                         snapshot.forEach(function (data) {
                             console.log("The " + data.key + " rating is " + data.val().nif);
                             ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
@@ -144,10 +171,58 @@ var validateCode = function (_codigo) {
     if (codigos.indexOf(_codigo) > -1) {
         console.log('código correcto');
 
-        navigation.load('tipoProfissional.html', tipoProfissional);
+        // validate in firebase
+        var connectedRef = firebase.database().ref(".info/connected");
+        connectedRef.on("value", function (snap) {
+            if (navigator.onLine && snap.val() === true) {
+
+                var returnedCode = null;
+                firebase.database().ref('/contacts/' + _codigo).once('value').then(function (snapshot) {
+                    console.log(snapshot.val());
+                    returnedCode = snapshot.val();
+
+                    // if return a value its is used
+                    if (snapshot.val() !== null) {
+                        alert('Este código já foi utilizado');
+                        reinitApp();
+                        return false;
+
+                    } else {
+
+                        var useds = JSON.parse(localStorage["usedCodes"]);
+                        useds.push(_codigo);
+
+                        localStorage["usedCodes"] = JSON.stringify(useds);
+
+                        // set global code
+                        code = _codigo;
+
+                        navigation.load('tipoProfissional.html', tipoProfissional);
+                    }
+                });
+                
+
+            } else if (!navigator.onLine) { // offline
+                console.log("Not connected. Não será sincronizado com o servidor.");
+
+                // set global code
+                code = _codigo;
+
+                var useds = JSON.parse(localStorage["usedCodes"]);
+                useds.push(_codigo);
+
+                localStorage["usedCodes"] = JSON.stringify(useds);
+
+                navigation.load('tipoProfissional.html', tipoProfissional);
+            }
+        });
+
+
 
     } else {
-        console.log('código inválido');
+        alert('Código inválido');
+        reinitApp();
+        return false;
     }
 }
 
@@ -161,11 +236,13 @@ var tipoProfissional = function () {
         if (tipo == '0') {
             // médico
             navigation.load('quiz.html', function () {
+                tipoProfissional = 'Médico';
                 quiz(questionsMedicos);
             });
         } else {
             // enfermeiro
             navigation.load('quiz.html', function () {
+                tipoProfissional = 'Enfermeiro';
                 quiz(questionsEnfermeiros);
             });
         }
@@ -176,10 +253,10 @@ var tipoProfissional = function () {
 var formulario = function () {
     $('.btnSend').on('click', function () {
         if (validateForm()) {
-            //navigation.load('parabens.html', parabens);
-            navigation.load('convite.html', function () {
-                convite();
-            });
+            navigation.load('parabens.html', parabens);
+            //navigation.load('convite.html', function () {
+            //    convite();
+            //});
         }
 
     });
@@ -229,6 +306,9 @@ var formulario = function () {
             user.nif = nif;
             user.respostas = totalScore;
             user.time = totalTime;
+            user.code = code;
+            user.average = Math.floor(parseInt(totalScore) / parseInt(totalTime.replace('m', '').replace('s', '')) * 100);
+            user.tipoProfissional = tipoProfissional;
 
             var dataUSer = user;
             var contacts = JSON.parse(localStorage["contacts"]);
@@ -240,11 +320,11 @@ var formulario = function () {
 
             var connectedRef = firebase.database().ref(".info/connected");
             connectedRef.on("value", function (snap) {
-                if (snap.val() === true) {
-                    //alert("connected");
+                if (navigator.onLine && snap.val() === true) {
+                    
                     // add data to firebase
-                    firebase.database().ref('contacts/' + user.nif).set(user);
-                } else {
+                    firebase.database().ref('contacts/' + user.code).set(user);
+                } else if (!navigator.onLine) {
                     console.log("Not connected. Não será sincronizado com o servidor.");
                 }
             });
@@ -271,8 +351,8 @@ var parabens = function () {
     $('.crono').html('Crono ' + totalTime);
 
     $('.btnSend').on('click', function () {
-        //navigation.load('convite.html', convite);
-        navigation.load('formulario.html', formulario);
+        navigation.load('convite.html', convite);
+        //navigation.load('formulario.html', formulario);
     });
 }
 

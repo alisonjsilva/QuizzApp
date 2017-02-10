@@ -1,138 +1,184 @@
 ﻿var questionsMedicos = [{
-    question: "O que é hipertensão arterial? médicos",
+    question: "O que é hipertensão arterial?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+      'Aumento anormal da pressão arterial sistólica acima de 150 mmHg',
+      'Aumento anormal e persistente da pressão arterial sistólica acima de 150 mmHg',
+      'Aumento anormal da pressão arterial sistólica acima de 180 mmHg',
+      'Aumento anormal e persistente da pressão arterial sistólica acima de 180 mmHg',
     ],
-    correctAnswer: 0
+    correctAnswer: 1
 }, {
-    question: "Praesent volutpat nisi at condimentum egestas.",
+    question: "Qual é a prevalência de hipertensão arterial em gatos com idade superior a 7 anos?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
-    ],
-    correctAnswer: 0
-}, {
-    question: "Sed aliquam sem dapibus lacus bibendum congue eu sed lacus.",
-    choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
-    ],
-    correctAnswer: 0
-}, {
-    question: "Pellentesque nec magna tincidunt, luctus diam mollis, vestibulum nunc.",
-    choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+      '1 gato em cada 6000',
+      '1 gato em cada 60',
+      '1 gato em cada 600',
+      '1 gato em cada 6',
     ],
     correctAnswer: 3
 }, {
-    question: "In ut sem eget eros imperdiet egestas.",
+    question: "Em 80% dos casos a hipertensão arterial é secundária a?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+      'Hipertiroidismo e/ou Doença renal crónica',
+      'Diabetes mellitus',
+      'Medicação com glucocorticoides',
+      'Medicação com eritropoietina',
     ],
-    correctAnswer: 4
+    correctAnswer: 0
 }, {
-    question: "Vestibulum lobortis magna non felis mollis varius.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Quais são os órgãos lesados pela hipertensão arterial?",
+    choices: [
+      'Olho, Cérebro, Rim',
+      'Cérebro, Rim, Coração',
+      'Olho, Cérebro, Coração, Rim',
+      'Olho, Rim',
+    ],
+    correctAnswer: 3
 }, {
-    question: "Donec facilisis dolor vitae elementum sollicitudin.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Em que casos é recomendado medir a pressão arterial em gatos?",
+    choices: [
+      'Gato com idade superior a 7 anos',
+      'Presença de doença concomitante: DRC, hipertiroidismo, outra',
+      'Presença de lesão nos órgãos-alvo',
+      'Todas as anteriores',
+    ],
+    correctAnswer: 3
 }, {
-    question: "Proin quis eros id diam laoreet mattis sed feugiat mi.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Qual é o objetivo do tratamento?",
+    choices: [
+      'Redução gradual da pressão arterial sistólica',
+      'Manutenção da pressão arterial sistólica',
+      'Redução rápida da pressão arterial sistólica',
+      'Nenhum dos anteriores',
+    ],
+    correctAnswer: 0
 }, {
-    question: "Proin quis ipsum id risus efficitur tincidunt.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Quais são os elementos que devem ser considerados para tratamento da hipertensão?",
+    choices: [
+        'O valor da pressão arterial e o risco de aparecimento de lesão nos órgãos-alvo',
+        'A presença de lesão nos órgãos-alvo',
+        'Presença de doença concomitante: DRC, hipertiroidismo, outra',
+        'Todas as anteriores'
+    ],
+    correctAnswer: 3
 }, {
-    question: "Mauris blandit diam eget nisi ornare, eget dictum sapien finibus.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Qual é a molécula de referência no tratamento da hipertensão arterial em gatos?",
+    choices: [
+        'Espironolactona',
+        'Amlodipina',
+        'Benazepril',
+        'Furosemida'
+    ],
+    correctAnswer: 1
+}, {
+    question: "Qual é o modo de ação de amlodipina? ",
+    choices: [
+        'Inibidor da enzima conversora da Angiotensina',
+        'Antagonista dos recetores da Aldosterona',
+        'Antagonista dos canais de cálcio',
+        'Diurético'
+    ],
+    correctAnswer: 3
+}, {
+    question: "Como se chama o único medicamento veterinário registado para o tratamento da hipertensão em gatos? ",
+    choices: [
+        'AMODIP®',
+        'CARDALIS®',
+        'NELIO®',
+        'LIBEO®'
+    ],
+    correctAnswer: 0
 }];
 
 var questionsEnfermeiros = [{
-    question: "O que é hipertensão arterial? Enfermeiro",
+    question: "O que é a hipertensão arterial?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+        'Aumento anormal da pressão arterial sistólica acima de 150 mmHg',
+        'Aumento anormal e persistente da pressão arterial sistólica acima de 150 mmHg',
+        'Aumento anormal da pressão arterial sistólica acima de 180 mmHg',
+        'Aumento anormal e persistente da pressão arterial sistólica acima de 180 mmHg'
     ],
-    correctAnswer: 0
+    correctAnswer: 1
 }, {
-    question: "Pergunta de teste número 2",
+    question: "Qual é a prevalência de hipertensão arterial em gatos com idade superior a 7 anos?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
-    ],
-    correctAnswer: 0
-}, {
-    question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
-    ],
-    correctAnswer: 0
-}, {
-    question: "Etiam sed dolor mattis, sollicitudin orci at, consectetur augue.",
-    choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+        '1 gato em cada 6000',
+        '1 gato em cada 60',
+        '1 gato em cada 600',
+        '1 gato em cada 6',
     ],
     correctAnswer: 3
 }, {
-    question: "Curabitur varius neque quis egestas vehicula.",
+    question: "Em 80% dos casos a hipertensão arterial é secundária a?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+        'Hipertiroidismo e/ou Doença renal crónica',
+        'Diabetes mellitus',
+        'Medicação com glucocorticoides',
+        'Medicação com eritropoietina',
     ],
-    correctAnswer: 4
+    correctAnswer: 0
 }, {
-    question: "CQuisque tincidunt est bibendum tellus malesuada ornare.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
-}, {
-    question: "Mauris pellentesque quam at justo laoreet, vel lobortis lacus rutrum.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
-}, {
-    question: "Curabitur varius neque quis egestas vehicula.",
+    question: "Quais são os órgãos lesados pela hipertensão arterial?",
     choices: [
-      'Aumento anormal e persistente da pressão arterial sis-tólica acima de 150 mmhg',
-      '1 Gato em cada 6',
-      'Doença renal crónica',
-      'Redução gradual da pressão arterial sistólica',
+        'Olho, Cérebro, Rim',
+        'Cérebro, Rim, Coração',
+        'Olho, Cérebro, Coração, Rim',
+        'Olho, Rim'
     ],
-    correctAnswer: 4
+    correctAnswer: 2
 }, {
-    question: "Vivamus finibus ligula a scelerisque consequat.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Em que casos é recomendado medir a pressão arterial em gatos?",
+    choices: [
+        'Gato com idade superior a 7 anos',
+        'Presença de doença concomitante: DRC, hipertiroidismo, outra',
+        'Presença de lesão nos órgãos-alvo',
+        'Todas as anteriores'
+    ],
+    correctAnswer: 2
 }, {
-    question: "Curabitur varius neque quis egestas vehicula.",
-    choices: [20, 30, 40, 50],
-    correctAnswer: 4
+    question: "Onde é recomendado fazer a medição da pressão arterial?",
+    choices: [
+        'Artéria mediana (membros anteriores) ou artéria coccígena (cauda)',
+        'Artéria carótida (pescoço)',
+        'Artéria femoral (membro posterior)',
+        'Artéria tibial (membro posterior)'
+    ],
+    correctAnswer: 0
+}, {
+    question: "Em que posição deve estar o gato?",
+    choices: [
+        'Sentado',
+        'Em pé',
+        'Em decúbito lateral ou esternal',
+        'Qualquer das anteriores'
+    ],
+    correctAnswer: 3
+}, {
+    question: "Que fatores podem alterar as medições?",
+    choices: [
+        'Stresse, Equipamento',
+        'Stresse, Equipamento, Operador',
+        'Operador, Equipamento',
+        'Stresse, Operador'
+    ],
+    correctAnswer: 1
+}, {
+    question: "Qual é o objetivo do tratamento?",
+    choices: [
+        'Manutenção da pressão arterial sistólica',
+        'Redução rápida da pressão arterial sistólica',
+        'Redução gradual da pressão arterial sistólica',
+        'Nenhum dos anteriores'
+    ],
+    correctAnswer: 2
+},
+{
+    question: "10.Como se chama o único medicamento veterinário registado para o tratamento da hipertensão em gatos? ",
+    choices: [
+      'AMODIP®',
+      'CARDALIS®',
+      'NELIO®',
+      'LIBEO®',
+    ],
+correctAnswer: 0
 }];
