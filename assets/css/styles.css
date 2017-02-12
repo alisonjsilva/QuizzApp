@@ -161,4 +161,5 @@ video {
   height: 80px;
   position: absolute;
   z-index: 999999;
+  top: 0px;
 }

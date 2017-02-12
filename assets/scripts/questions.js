@@ -118,7 +118,7 @@ var questionsEnfermeiros = [{
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os órgãos lesados pela hipertensão arterial?",
+    question: "Quais são os 4 órgãos que podem ser lesados pela hipertensão arterial?",
     choices: [
         'Olho, Cérebro, Rim',
         'Cérebro, Rim, Coração',
@@ -136,9 +136,9 @@ var questionsEnfermeiros = [{
     ],
     correctAnswer: 2
 }, {
-    question: "Onde é recomendado fazer a medição da pressão arterial?",
+    question: "Onde é mais recomendado fazer a medição da pressão arterial?",
     choices: [
-        'Artéria mediana (membros anteriores) ou artéria coccígena (cauda)',
+        'Artéria mediana (membros anteriores) ou artéria caudal (cauda)',
         'Artéria carótida (pescoço)',
         'Artéria femoral (membro posterior)',
         'Artéria tibial (membro posterior)'
@@ -149,7 +149,7 @@ var questionsEnfermeiros = [{
     choices: [
         'Sentado',
         'Em pé',
-        'Em decúbito lateral ou esternal',
+        'Confortável em decúbito lateral ou esternal, sentado ou em pé',
         'Qualquer das anteriores'
     ],
     correctAnswer: 3
@@ -159,7 +159,7 @@ var questionsEnfermeiros = [{
         'Stresse, Equipamento',
         'Stresse, Equipamento, Operador',
         'Operador, Equipamento',
-        'Stresse, Operador'
+        'Todas as anteriores'
     ],
     correctAnswer: 1
 }, {

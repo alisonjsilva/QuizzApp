@@ -26,11 +26,11 @@ var syncronize = (function () {
             var data = JSON.parse(localStorage["contacts"]);
             data.forEach(function (obj) {
 
-                var newPostRef = firebase.database().ref('dados/' + obj.code).set(obj);                
-                
+                var newPostRef = firebase.database().ref('dados/' + obj.code).set(obj);
+
             });
             // add data to firebase
-            //firebase.database().ref('dados/').set(JSON.parse(localStorage["contacts"]));            
+            //firebase.database().ref('dados/').set(JSON.parse(localStorage["contacts"]));
 
         } else if (!navigator.onLine) {
             console.log("Not connected. Não será sincronizado com o servidor.");
@@ -166,7 +166,7 @@ var adminLogin = function () {
                                 JSONToCSVConvertor(localStorage.contacts, "contactos", true);
                             }
                         }
-                    });                    
+                    });
 
                     alert('Dados exportados com sucesso e cruzados com sucesso!');
                 });
@@ -235,7 +235,7 @@ var validateCode = function (_codigo) {
                         navigation.load('tipoProfissional.html', tipoProfissional);
                     }
                 });
-                
+
 
             } else if (!navigator.onLine) { // offline
                 console.log("Not connected. Não será sincronizado com o servidor.");
@@ -270,19 +270,28 @@ var tipoProfissional = function () {
 
         if (tipo == '0') {
             // médico
-            navigation.load('quiz.html', function () {
+            navigation.load('mensagem.html', function () {
                 tipoProfissional = 'Médico';
-                quiz(questionsMedicos);
+                mensagemResponda(questionsMedicos);
             });
         } else {
             // enfermeiro
-            navigation.load('quiz.html', function () {
+            navigation.load('mensagem.html', function () {
                 tipoProfissional = 'Enfermeiro';
-                quiz(questionsEnfermeiros);
+                mensagemResponda(questionsEnfermeiros);
             });
         }
 
     });
+}
+
+var mensagemResponda = function (questions) {
+
+    $(document).on('click', '.btnSend', function () {
+      navigation.load('quiz.html', function () {
+          quiz(questions);
+      })
+  })
 }
 
 var formulario = function () {
@@ -356,10 +365,10 @@ var formulario = function () {
             var connectedRef = firebase.database().ref(".info/connected");
             connectedRef.on("value", function (snap) {
                 if (navigator.onLine && snap.val() === true) {
-                    
+
                     // add data to firebase
                     firebase.database().ref('contacts/' + user.code).set(user);
-                    
+
                 } else if (!navigator.onLine) {
                     console.log("Not connected. Não será sincronizado com o servidor.");
                 }
