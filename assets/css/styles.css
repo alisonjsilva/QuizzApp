@@ -50,11 +50,11 @@ li{
 }
 .listQuestion input {
   clear: both;
-  width: 70px;
+  width: 90px;
   height: 70px;
   border-style: none;
   background: url('../images/BotRed01.png');
-  background-repeat: no-repeat;;
+  background-repeat: no-repeat;
   background-size: 70px 70px;
   margin-right: 20px;
   float: left;
@@ -70,7 +70,7 @@ li{
 
 
 .question-bot {
-  width: 70px;
+  width: 92px;
   height: 70px;
   border-style: none;
   background: url('../images/BotBlack01.png');
@@ -90,6 +90,7 @@ li{
   vertical-align: center;
   margin-left: 20px;
   margin-bottom: 47px;
+      display: inline-flex;
 }
 .question-title span {
   margin-left: 20px;

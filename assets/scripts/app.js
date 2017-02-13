@@ -105,7 +105,6 @@ function home() {
 var adminLogin = function () {
 
     $('.admin-btn-fechar').on('click', function () {
-      console.log('fechar');
         reinitApp();
     });
 
@@ -114,6 +113,10 @@ var adminLogin = function () {
         var pass = $('.admin-password').val();
         if (pass === 'ceva123') {
             navigation.load('admin-options.html', function () {
+
+              $('.admin-btn-fechar').on('click', function () {
+                  reinitApp();
+              });
 
                 $('.ranking').on('click', function () {
                     var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
