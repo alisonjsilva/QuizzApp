@@ -287,7 +287,7 @@ var tipoProfissional = function () {
 
 var mensagemResponda = function (questions) {
 
-    $(document).on('click', '.btnSend', function () {
+    $('.btnNext1').on('click', function () {
       navigation.load('quiz.html', function () {
           quiz(questions);
       })
@@ -403,14 +403,14 @@ var parabens = function () {
 
 var convite = function () {
     console.log('convite');
-    $(document).on('click', '.btnVoltar, .admin-btn-fechar  ', function () {
+    $('.btnVoltar, .admin-btn-fechar').on('click', function () {
         console.log('voltar');
         reinitApp();
     });
 }
 
 function quiz(tipo) {
-    console.log('jogo', arguments);
+    //console.log('jogo', arguments);
     // init game
     quizGame(tipo);
     $('.timer').stopwatch({ format: '{M}m{s.}s' }).stopwatch('start');
