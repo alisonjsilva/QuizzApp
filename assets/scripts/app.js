@@ -94,7 +94,7 @@ navigation.load('codigo.html', function () {
 // homepage
 function home() {
     console.log('this is home');
-    $(document).on('click', '.btn-admin', function () {
+    $('.btn-admin').on('click', function () {
         navigation.load('admin-login.html', function () {
             console.log('admin-login');
             adminLogin();
@@ -104,17 +104,17 @@ function home() {
 
 var adminLogin = function () {
 
-    $(document).on('click', '.admin-btn-fechar', function () {
+    $('.admin-btn-fechar').on('click', function () {
         reinitApp();
     });
 
-    $(document).on('click', '.admin-btn-password', function () {
+    $('.admin-btn-password').on('click', function () {
 
         var pass = $('.admin-password').val();
         if (pass === 'ceva123') {
             navigation.load('admin-options.html', function () {
 
-                $(document).on('click', '.ranking', function () {
+                $('.ranking').on('click', function () {
                     var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
                     var ranking = '';
                     ref.on("value", function (snapshot) {
@@ -132,7 +132,7 @@ var adminLogin = function () {
                     });
                 });
 
-                $(document).on('click', '.exportar', function () {
+                $('.exportar').on('click', function () {
 
 
                     var connectedRef = firebase.database().ref(".info/connected");
@@ -179,7 +179,7 @@ var adminLogin = function () {
 // pagina codigo
 var codigo = function () {
 
-    $(document).on('click', '.btn-admin', function () {
+    $('.btn-admin').on('click', function () {
         navigation.load('admin-login.html', function () {
             console.log('admin-login');
             adminLogin();
