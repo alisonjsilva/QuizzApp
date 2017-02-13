@@ -105,6 +105,7 @@ function home() {
 var adminLogin = function () {
 
     $('.admin-btn-fechar').on('click', function () {
+      console.log('fechar');
         reinitApp();
     });
 
