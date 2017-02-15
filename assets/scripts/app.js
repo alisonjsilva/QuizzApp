@@ -143,6 +143,9 @@ var adminLogin = function () {
 
                 $('.exportar').on('click', function () {
 
+                    if (localStorage.contacts) {
+                        JSONToCSVConvertor(localStorage.contacts, "contactos", true);
+                    }
 
                     var connectedRef = firebase.database().ref(".info/connected");
                     connectedRef.on("value", function (snap) {
