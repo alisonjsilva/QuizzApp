@@ -114,9 +114,9 @@ var adminLogin = function () {
         if (pass === 'ceva123') {
             navigation.load('admin-options.html', function () {
 
-              $('.admin-btn-fechar').on('click', function () {
-                  reinitApp();
-              });
+                $('.admin-btn-fechar').on('click', function () {
+                    reinitApp();
+                });
 
                 $('.ranking').on('click', function () {
                     var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
@@ -141,6 +141,18 @@ var adminLogin = function () {
                     });
                 });
 
+                $('.apagar').on('click', function () {
+                    console.log('apagar');
+                    var connectedRef = firebase.database().ref(".info/connected");
+                    connectedRef.on("value", function (snap) {
+                        var del = confirm('Deseja apagar todos os dados?');
+                        if (del === true) {
+                            firebase.database().ref().child('contacts').remove();
+                            alert('Dados apagados com sucesso!');
+                        }
+                    });
+                });
+
                 $('.exportar').on('click', function () {
 
                     if (localStorage.contacts) {
@@ -154,12 +166,12 @@ var adminLogin = function () {
                             var ranking = '';
                             ref.on("value", function (snapshot) {
                                 var data = JSON.stringify(snapshot.val());
-                                console.log(data);
+                                //console.log(data);
                                 $.ajax({
                                     url: "http://fixhouse.pt/api/sendEmail.php",
                                     type: "POST",
                                     data: {
-                                        data : data
+                                        //data : data
                                     },
                                     context: document.body
                                 }).done(function (r) {
@@ -300,10 +312,10 @@ var tipoProfissional = function () {
 var mensagemResponda = function (questions) {
 
     $('.btnNext1').on('click', function () {
-      navigation.load('quiz.html', function () {
-          quiz(questions);
-      })
-  })
+        navigation.load('quiz.html', function () {
+            quiz(questions);
+        })
+    })
 }
 
 var formulario = function () {
@@ -438,6 +450,14 @@ var reinitApp = function () {
     console.log('reinitApp');
     document.location = 'index.html';
 }
+
+$('.reinitGame').on('click', function () {
+    console.log('reinit');
+    var r = confirm('Reiniciar Jogo?');
+    if (r === true) {
+        reinitApp();
+    }
+});
 
 function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
     var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;

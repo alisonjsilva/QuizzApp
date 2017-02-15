@@ -179,3 +179,11 @@ video {
     z-index: 999999;
     top: 0px;
 }
+.reinitGame {
+    position:absolute;
+    width:250px;
+    height:200px;
+    z-index:9999999;
+    right:0;
+    top:0;
+}
