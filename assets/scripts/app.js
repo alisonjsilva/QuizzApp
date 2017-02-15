@@ -215,7 +215,7 @@ var validateCode = function (_codigo) {
 
     var codigos = codes;
 
-    if (codigos.indexOf(_codigo) > -1 || _codigo.toLowerCase() == 'apceva') {
+    if (codigos.indexOf(_codigo) > -1 || _codigo == 'apceva') {
         console.log('código correcto');
 
         // validate in firebase
@@ -229,7 +229,7 @@ var validateCode = function (_codigo) {
                     returnedCode = snapshot.val();
 
                     // if return a value its is used
-                    if (_codigo.toLowerCase() != 'apceva' && snapshot.val() !== null) {
+                    if (_codigo != 'apceva' && snapshot.val() !== null) {
                         alert('Este código já foi utilizado');
                         reinitApp();
                         return false;
