@@ -117,16 +117,21 @@ var adminLogin = function () {
                 $('.ranking').on('click', function () {
                     var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
                     var ranking = '';
+                    var ranking2 = '';
                     ref.on("value", function (snapshot) {
                         //console.log(snapshot.val());
                         console.log(snapshot.val());
                         var results = snapshot.val();
                         snapshot.forEach(function (data) {
-                            console.log("The " + data.key + " rating is " + data.val().nif);
+                            //console.log("The " + data.key + " rating is " + data.val().nif);
                             ranking += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
+                            ranking2 += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>'
                         });
+                        ranking = '<div class="ranking1">' + ranking + '</div>';
+                        ranking2 = '<div class="ranking2">' + ranking2 + '</div>';
+
                         console.log(ranking);
-                        $('.caixa').html('<div class="rankingScroll">' + ranking + '</div>');
+                        $('.caixa').html('<div class="rankingScroll">' + ranking + ranking2 + '</div>');
                     }, function (error) {
                         console.log("Error: " + error.code);
                     });
