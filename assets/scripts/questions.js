@@ -26,14 +26,14 @@
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os órgãos lesados pela hipertensão arterial?",
+    question: "Quais são os órgãos que podem ser lesados pela hipertensão arterial?",
     choices: [
-      'Olho, Cérebro, Rim',
-      'Cérebro, Rim, Coração',
+      'Olho, Cérebro, Fígado, Rim',
+      'Pulmão, Cérebro, Coração, Rim',
       'Olho, Cérebro, Coração, Rim',
-      'Olho, Rim',
+      'Olho, Pulmão, Fígado, Rim',
     ],
-    correctAnswer: 3
+    correctAnswer: 2
 }, {
     question: "Em que casos é recomendado medir a pressão arterial em gatos?",
     choices: [
@@ -53,7 +53,7 @@
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os elementos que devem ser considerados para tratamento da hipertensão?",
+    question: "Quais são os elementos que devem ser considerados no controlo da hipertensão?",
     choices: [
         'O valor da pressão arterial e o risco de aparecimento de lesão nos órgãos-alvo',
         'A presença de lesão nos órgãos-alvo',
@@ -78,7 +78,7 @@
         'Antagonista dos canais de cálcio',
         'Diurético'
     ],
-    correctAnswer: 3
+    correctAnswer: 2
 }, {
     question: "Como se chama o único medicamento veterinário registado para o tratamento da hipertensão em gatos? ",
     choices: [
@@ -118,12 +118,12 @@ var questionsEnfermeiros = [{
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os 4 órgãos que podem ser lesados pela hipertensão arterial?",
+    question: "Quais são os órgãos que podem ser lesados pela hipertensão arterial?",
     choices: [
-        'Olho, Cérebro, Rim',
-        'Cérebro, Rim, Coração',
-        'Olho, Cérebro, Coração, Rim',
-        'Olho, Rim'
+      'Olho, Cérebro, Fígado, Rim',
+      'Pulmão, Cérebro, Coração, Rim',
+      'Olho, Cérebro, Coração, Rim',
+      'Olho, Pulmão, Fígado, Rim',
     ],
     correctAnswer: 2
 }, {
@@ -134,7 +134,7 @@ var questionsEnfermeiros = [{
         'Presença de lesão nos órgãos-alvo',
         'Todas as anteriores'
     ],
-    correctAnswer: 2
+    correctAnswer: 3
 }, {
     question: "Onde é mais recomendado fazer a medição da pressão arterial?",
     choices: [
@@ -147,21 +147,21 @@ var questionsEnfermeiros = [{
 }, {
     question: "Em que posição deve estar o gato?",
     choices: [
-        'Sentado',
-        'Em pé',
+        'Contido em decúbito dorsal',
         'Confortável em decúbito lateral ou esternal, sentado ou em pé',
-        'Qualquer das anteriores'
+        'Em movimento',
+        'Contido enrolado numa toalha'
     ],
-    correctAnswer: 3
+    correctAnswer: 1
 }, {
     question: "Que fatores podem alterar as medições?",
     choices: [
-        'Stresse, Equipamento',
-        'Stresse, Equipamento, Operador',
-        'Operador, Equipamento',
+        'Ambiente',
+        'Equipamento',
+        'Operador',
         'Todas as anteriores'
     ],
-    correctAnswer: 1
+    correctAnswer: 3
 }, {
     question: "Qual é o objetivo do tratamento?",
     choices: [
@@ -173,7 +173,7 @@ var questionsEnfermeiros = [{
     correctAnswer: 2
 },
 {
-    question: "10.Como se chama o único medicamento veterinário registado para o tratamento da hipertensão em gatos? ",
+    question: "Como se chama o único medicamento veterinário registado para o tratamento da hipertensão em gatos? ",
     choices: [
       'AMODIP®',
       'CARDALIS®',
