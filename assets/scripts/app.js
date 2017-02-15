@@ -215,7 +215,7 @@ var validateCode = function (_codigo) {
 
     var codigos = codes;
 
-    if (codigos.indexOf(_codigo) > -1 || _codigo == 'apceva') {
+    if (codigos.indexOf(_codigo.toUpperCase()) > -1 || _codigo.toUpperCase() == 'APCEVA') {
         console.log('código correcto');
 
         // validate in firebase
@@ -224,12 +224,12 @@ var validateCode = function (_codigo) {
             if (navigator.onLine && snap.val() === true) {
 
                 var returnedCode = null;
-                firebase.database().ref('/contacts/' + _codigo).once('value').then(function (snapshot) {
+                firebase.database().ref('/contacts/' + _codigo.toUpperCase()).once('value').then(function (snapshot) {
                     console.log(snapshot.val());
                     returnedCode = snapshot.val();
 
                     // if return a value its is used
-                    if (_codigo != 'apceva' && snapshot.val() !== null) {
+                    if (_codigo.toUpperCase() != 'APCEVA' && snapshot.val() !== null) {
                         alert('Este código já foi utilizado');
                         reinitApp();
                         return false;
@@ -237,12 +237,12 @@ var validateCode = function (_codigo) {
                     } else {
 
                         var useds = JSON.parse(localStorage["usedCodes"]);
-                        useds.push(_codigo);
+                        useds.push(_codigo.toUpperCase());
 
                         localStorage["usedCodes"] = JSON.stringify(useds);
 
                         // set global code
-                        code = _codigo;
+                        code = _codigo.toUpperCase();
 
                         navigation.load('tipoProfissional.html', tipoProfissional);
                     }
