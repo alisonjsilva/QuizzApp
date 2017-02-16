@@ -8,7 +8,7 @@
     ],
     correctAnswer: 1
 }, {
-    question: "Qual é a prevalência de hipertensão arterial em gatos com idade superior a 7 anos?",
+    question: "Qual é a prevalência da hipertensão arterial em gatos com idade superior a 7 anos?",
     choices: [
       '1 gato em cada 6000',
       '1 gato em cada 60',
@@ -26,7 +26,7 @@
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os órgãos que podem ser lesados pela hipertensão arterial?",
+    question: "Quais são os 4 órgãos que podem ser lesados pela hipertensão arterial?",
     choices: [
       'Olho, Cérebro, Fígado, Rim',
       'Pulmão, Cérebro, Coração, Rim',
@@ -100,7 +100,7 @@ var questionsEnfermeiros = [{
     ],
     correctAnswer: 1
 }, {
-    question: "Qual é a prevalência de hipertensão arterial em gatos com idade superior a 7 anos?",
+    question: "Qual é a prevalência da hipertensão arterial em gatos com idade superior a 7 anos?",
     choices: [
         '1 gato em cada 6000',
         '1 gato em cada 60',
@@ -118,7 +118,7 @@ var questionsEnfermeiros = [{
     ],
     correctAnswer: 0
 }, {
-    question: "Quais são os órgãos que podem ser lesados pela hipertensão arterial?",
+    question: "Quais são os 4 órgãos que podem ser lesados pela hipertensão arterial?",
     choices: [
       'Olho, Cérebro, Fígado, Rim',
       'Pulmão, Cérebro, Coração, Rim',
