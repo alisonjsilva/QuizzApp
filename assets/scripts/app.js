@@ -121,13 +121,18 @@ var adminLogin = function () {
 
                 // Médicos
                 $('.btn-medicos').on('click', function () {
-                    var ref = firebase.database().ref('Médico/').limitToLast(2).orderByChild('average');
+                    var ref = firebase.database().ref('Médico/').limitToLast(5).orderByChild('respostas');
                     var rankingMedicos = '';
+                    var obj = [];
                     var _snap = ref.on("value", function (snapshot) {
-                        console.log(snapshot.val());
+                        
                         snapshot.forEach(function (data) {
-                            //console.log("The " + data.key + " rating is " + data.val().nif);
-                            rankingMedicos += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>';
+                            obj.push(data.val())                            
+                        });
+                        
+                        obj.reverse();
+                        obj.forEach(function (data) {
+                            rankingMedicos += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + '</div>';
                         });
                         rankingMedicos = '<div class="ranking1">' + rankingMedicos + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingMedicos + '</div>');
@@ -138,13 +143,17 @@ var adminLogin = function () {
                 // Enfermeiro
                 $('.btn-enfermeiros').on('click', function () {
                     
-                    var ref = firebase.database().ref('Enfermeiro/').limitToLast(2).orderByChild('average');
+                    var ref = firebase.database().ref('Enfermeiro/').limitToLast(5).orderByChild('respostas');
                     var rankingEnfermeiros = '';
+                    var obj = [];
                     var _snap = ref.on("value", function (snapshot) {
-                        console.log(snapshot.val());
-                        snapshot.forEach(function (data2) {
-                            //console.log("The " + data.key + " rating is " + data.val().nif);
-                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data2.val().nome + ', Respostas: ' + data2.val().respostas + ', Tempo: ' + data2.val().time + '</div>';
+                        snapshot.forEach(function (data) {
+                            obj.push(data.val())
+                        });
+
+                        obj.reverse();
+                        obj.forEach(function (data) {
+                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + '</div>';
                         });
                         rankingEnfermeiros = '<div class="ranking2">' + rankingEnfermeiros + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingEnfermeiros + '</div>');
