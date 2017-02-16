@@ -16,9 +16,12 @@
         minutes = Math.floor(x % 60);
         x /= 60;
         hours = Math.floor(x % 24);
+        millis2 = Math.floor(x % 60);
+        newTime = millis;
         // x /= 24;
         // days = Math.floor(x);
         //return [pad2(hours), pad2(minutes), pad2(seconds)].join(':');
+        //return pad2(minutes) + 'm' + pad2(seconds) + 's';
         return pad2(minutes) + 'm' + pad2(seconds) + 's';
     }
 
@@ -41,7 +44,7 @@
         
         init: function(options) {
             var defaults = {
-                updateInterval: 1000,
+                updateInterval: 100,
                 startTime: 0,
                 format: '{HH}h{MM}m{SS}s',
                 formatter: formatMilliseconds

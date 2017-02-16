@@ -181,8 +181,8 @@ video {
 }
 .reinitGame {
     position:absolute;
-    width:250px;
-    height:200px;
+    width:148px;
+    height:80px;
     z-index:9999999;
     right:0;
     top:0;

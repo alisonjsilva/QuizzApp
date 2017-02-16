@@ -2,6 +2,7 @@ var actualPage;
 var user = {};
 var totalScore;
 var totalTime;
+var newTime;
 var code;
 var tipoProfissional;
 
@@ -118,6 +119,39 @@ var adminLogin = function () {
                     reinitApp();
                 });
 
+                // Médicos
+                $('.btn-medicos').on('click', function () {
+                    var ref = firebase.database().ref('Médico/').limitToLast(2).orderByChild('average');
+                    var rankingMedicos = '';
+                    var _snap = ref.on("value", function (snapshot) {
+                        console.log(snapshot.val());
+                        snapshot.forEach(function (data) {
+                            //console.log("The " + data.key + " rating is " + data.val().nif);
+                            rankingMedicos += '<div class="top-ranking">Nome: ' + data.val().nome + ', Respostas: ' + data.val().respostas + ', Tempo: ' + data.val().time + '</div>';
+                        });
+                        rankingMedicos = '<div class="ranking1">' + rankingMedicos + '</div>';
+                        $('.caixa').html('<div class="rankingScroll">' + rankingMedicos + '</div>');
+                    });
+                    //ref.off('value', _snap);
+                });
+
+                // Enfermeiro
+                $('.btn-enfermeiros').on('click', function () {
+                    
+                    var ref = firebase.database().ref('Enfermeiro/').limitToLast(2).orderByChild('average');
+                    var rankingEnfermeiros = '';
+                    var _snap = ref.on("value", function (snapshot) {
+                        console.log(snapshot.val());
+                        snapshot.forEach(function (data2) {
+                            //console.log("The " + data.key + " rating is " + data.val().nif);
+                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data2.val().nome + ', Respostas: ' + data2.val().respostas + ', Tempo: ' + data2.val().time + '</div>';
+                        });
+                        rankingEnfermeiros = '<div class="ranking2">' + rankingEnfermeiros + '</div>';
+                        $('.caixa').html('<div class="rankingScroll">' + rankingEnfermeiros + '</div>');
+                    })
+                    //ref.off('value', _snap);
+                });
+
                 $('.ranking').on('click', function () {
                     var ref = firebase.database().ref('contacts/').limitToLast(5).orderByChild('average');
                     var ranking = '';
@@ -148,6 +182,8 @@ var adminLogin = function () {
                         var del = confirm('Deseja apagar todos os dados?');
                         if (del === true) {
                             firebase.database().ref().child('contacts').remove();
+                            firebase.database().ref().child('Médico').remove();
+                            firebase.database().ref().child('Enfermeiro').remove();
                             alert('Dados apagados com sucesso!');
                         }
                     });
@@ -374,8 +410,9 @@ var formulario = function () {
             user.nif = nif;
             user.respostas = totalScore;
             user.time = totalTime;
+            user.miliSegundos = newTime;
             user.code = code;
-            user.average = Math.floor(parseInt(totalScore) / parseInt(totalTime.replace('m', '').replace('s', '')) * 100);
+            user.average = (newTime * user.respostas);
             user.tipoProfissional = tipoProfissional;
 
             var dataUSer = user;
@@ -392,6 +429,7 @@ var formulario = function () {
 
                     // add data to firebase
                     firebase.database().ref('contacts/' + user.code).set(user);
+                    firebase.database().ref(user.tipoProfissional + '/' +user.code).set(user);
 
                 } else if (!navigator.onLine) {
                     console.log("Not connected. Não será sincronizado com o servidor.");
