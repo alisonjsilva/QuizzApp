@@ -132,7 +132,7 @@ var adminLogin = function () {
                         
                         obj.reverse();
                         obj.forEach(function (data) {
-                            rankingMedicos += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + '</div>';
+                            rankingMedicos += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
                         });
                         rankingMedicos = '<div class="ranking1">' + rankingMedicos + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingMedicos + '</div>');
@@ -153,7 +153,7 @@ var adminLogin = function () {
 
                         obj.reverse();
                         obj.forEach(function (data) {
-                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + '</div>';
+                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
                         });
                         rankingEnfermeiros = '<div class="ranking2">' + rankingEnfermeiros + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingEnfermeiros + '</div>');
