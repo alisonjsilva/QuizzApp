@@ -44,7 +44,7 @@
         
         init: function(options) {
             var defaults = {
-                updateInterval: 100,
+                updateInterval: 10,
                 startTime: 0,
                 format: '{HH}h{MM}m{SS}s',
                 formatter: formatMilliseconds
