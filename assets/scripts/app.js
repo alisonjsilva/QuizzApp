@@ -170,7 +170,9 @@ var adminLogin = function () {
                 // Enfermeiro
                 $('.btn-enfermeiros').on('click', function () {
 
-                    var ref = firebase.database().ref('Enfermeiro/').limitToLast(5).orderByChild('respostas');
+                    var ref = firebase.database().ref('Enfermeiro/')
+                    .orderByChild('respostas')
+                    .equalTo(10);
                     var rankingEnfermeiros = '';
                     var obj = [];
                     var _snap = ref.on("value", function (snapshot) {
