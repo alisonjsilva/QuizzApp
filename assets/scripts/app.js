@@ -119,9 +119,26 @@ var adminLogin = function () {
                     reinitApp();
                 });
 
+                // Sort Array
+                var sort_by = function(field, reverse, primer){
+
+                   var key = primer ?
+                       function(x) {return primer(x[field])} :
+                       function(x) {return x[field]};
+
+                   reverse = !reverse ? 1 : -1;
+
+                   return function (a, b) {
+                       return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+                     }
+                }
+
                 // Médicos
                 $('.btn-medicos').on('click', function () {
-                    var ref = firebase.database().ref('Médico/').limitToLast(5).orderByChild('respostas');
+                    var ref = firebase.database().ref('Médico/')
+                    //.limitToLast(5)
+                    .orderByChild('respostas')
+                    .equalTo(10);
                     var rankingMedicos = '';
                     var obj = [];
                     var _snap = ref.on("value", function (snapshot) {
@@ -130,9 +147,19 @@ var adminLogin = function () {
                             obj.push(data.val())
                         });
 
+                        // Call order by miliSegundos
+                        obj.sort(sort_by('miliSegundos', true, parseInt));
+
+                        console.log(obj)
+
                         obj.reverse();
+                        var i = 0;
                         obj.forEach(function (data) {
+                          if(i < 5){
                             rankingMedicos += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
+                          }
+
+                          i++;
                         });
                         rankingMedicos = '<div class="ranking1">' + rankingMedicos + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingMedicos + '</div>');
@@ -151,9 +178,16 @@ var adminLogin = function () {
                             obj.push(data.val())
                         });
 
+                        // Call order by miliSegundos
+                        obj.sort(sort_by('miliSegundos', true, parseInt));
+
                         obj.reverse();
+                        var i = 0;
                         obj.forEach(function (data) {
+                          if(i < 5){
                             rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
+                          }
+                          i++;
                         });
                         rankingEnfermeiros = '<div class="ranking2">' + rankingEnfermeiros + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingEnfermeiros + '</div>');
