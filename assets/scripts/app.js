@@ -125,11 +125,11 @@ var adminLogin = function () {
                     var rankingMedicos = '';
                     var obj = [];
                     var _snap = ref.on("value", function (snapshot) {
-                        
+
                         snapshot.forEach(function (data) {
-                            obj.push(data.val())                            
+                            obj.push(data.val())
                         });
-                        
+
                         obj.reverse();
                         obj.forEach(function (data) {
                             rankingMedicos += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
@@ -142,7 +142,7 @@ var adminLogin = function () {
 
                 // Enfermeiro
                 $('.btn-enfermeiros').on('click', function () {
-                    
+
                     var ref = firebase.database().ref('Enfermeiro/').limitToLast(5).orderByChild('respostas');
                     var rankingEnfermeiros = '';
                     var obj = [];
@@ -153,7 +153,7 @@ var adminLogin = function () {
 
                         obj.reverse();
                         obj.forEach(function (data) {
-                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
+                            rankingEnfermeiros += '<div class="top-ranking">Nome: ' + data.nome + ', Respostas: ' + data.respostas + ', Tempo: ' + data.time + String(data.miliSegundos).substr(-3) + 'ms</div>';
                         });
                         rankingEnfermeiros = '<div class="ranking2">' + rankingEnfermeiros + '</div>';
                         $('.caixa').html('<div class="rankingScroll">' + rankingEnfermeiros + '</div>');
